@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>일주일 샐러드, 버튼 하나로</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one narrow column on phones, headline and CTA first, then a before/after pair and three needs. */
+:root{
+  --bg:#f4f6f2;
+  --surface:#ffffff;
+  --ink:#1c2a23;
+  --muted:#556459;
+  --line:#dce2da;
+  --accent:#c4381f;
+  --accent-ink:#ffffff;
+  --leaf:#2d6a4d;
+  --leaf-soft:#e4efe8;
+  --font:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#111715;
+    --surface:#1a211e;
+    --ink:#e7eee9;
+    --muted:#9aa9a0;
+    --line:#2b3732;
+    --accent:#ef6a55;
+    --accent-ink:#1a0f0c;
+    --leaf:#7cc29f;
+    --leaf-soft:#22302a;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:24px 20px 56px}
+.tag{display:inline-block;font-size:13px;font-weight:500;color:var(--leaf);background:var(--leaf-soft);padding:4px 10px;border-radius:999px;margin:0 0 20px}
+h1{font-weight:900;font-size:clamp(30px,8.4vw,52px);line-height:1.18;letter-spacing:-0.025em;margin:0 0 16px;text-wrap:balance}
+.sub{font-size:clamp(16px,4.2vw,19px);color:var(--muted);margin:0 0 28px;max-width:34em}
+.cta{display:flex;flex-direction:column;gap:10px;align-items:flex-start;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700;font-size:18px;min-height:52px;padding:0 28px;border-radius:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none}
+.btn:hover{filter:brightness(1.07)}
+.btn:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+.hint{font-size:13px;color:var(--muted);margin:0}
+h2{font-size:14px;font-weight:700;color:var(--leaf);letter-spacing:.04em;margin:0 0 12px}
+.compare{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:40px}
+@media (min-width:560px){.compare{grid-template-columns:1fr 1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.box.now{border-style:dashed}
+.box b{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:6px}
+.box p{margin:0;font-size:17px;font-weight:500}
+.needs{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:12px}
+.needs li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.n{width:32px;height:32px;border-radius:50%;background:var(--leaf);color:var(--surface);font-weight:700;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.needs strong{display:block;font-size:17px}
+.needs span{font-size:15px;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="tag">기획 중인 서비스</p>
+  <h1>요리도 배달도 싫지만,<br>점심 저녁은 건강한 샐러드로.</h1>
+  <p class="sub">버튼 하나로 일주일 분량의 샐러드 레시피와 재료를 추천받습니다. 매번 검색하지 않아도 됩니다.</p>
+
+  <div class="cta">
+    <a class="btn" href="https://claude.ai/artifact/AW4NNmCr7PjHV1PgFysD83">일주일 샐러드 추천받기</a>
+    <p class="hint">시안 단계의 화면입니다.</p>
+  </div>
+
+  <h2>지금과 바뀌었으면 하는 것</h2>
+  <div class="compare">
+    <div class="box now">
+      <b>지금</b>
+      <p>배달이나 외식. 가끔 집에서 요리.</p>
+    </div>
+    <div class="box">
+      <b>원하는 모습</b>
+      <p>레시피에서 아이디어를 얻고, 재료도 공급받는다.</p>
+    </div>
+  </div>
+
+  <h2>필요한 것</h2>
+  <ol class="needs">
+    <li><span class="n">1</span><div><strong>다양한 레시피</strong><span>끼니마다 메뉴를 떠올리지 않아도 되도록.</span></div></li>
+    <li><span class="n">2</span><div><strong>재료 구입처 정보</strong><span>무엇을 사야 할지, 어디서 살지 알 수 있도록.</span></div></li>
+    <li><span class="n">3</span><div><strong>같은 불편을 겪는 사람들</strong><span>회사나 동네 단위로 레시피와 재료 수급을 나눌 수 있도록.</span></div></li>
+  </ol>
+
+  <footer>배달 샐러드는 신선하지 않아서 싫다는 불편에서 출발한 기획입니다.</footer>
+</main>
+</body>
+</html>
